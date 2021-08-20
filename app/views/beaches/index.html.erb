@@ -34,8 +34,11 @@
         <td><%= beach.lat %></td>
         <td><%= beach.long %></td>
         <td><%= link_to 'Show', beach %></td>
-        <td><%= link_to 'Edit', edit_beach_path(beach) %></td>
-        <td><%= link_to 'Destroy', beach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if current_user.try(:admin?) %>
+          <td><%= link_to 'Edit', edit_beach_path(beach) %></td>
+          <td><%= link_to 'Destroy', beach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
 
 
@@ -53,4 +56,4 @@
 </p>
 <br>
 
-<%= link_to 'New Beach', new_beach_path %>
+<%#= link_to 'New Beach', new_beach_path %>

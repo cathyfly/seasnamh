@@ -62,5 +62,7 @@
     <% end %>
   </div>
 </div>
+<% if current_user.try(:admin?) %>
 <%= link_to 'Edit', edit_beach_path(@beach) %> |
 <%= link_to 'Back', beaches_path %>
+<% end %>
