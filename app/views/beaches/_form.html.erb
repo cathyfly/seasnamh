@@ -1,0 +1,67 @@
+<%= form_with(model: beach) do |form| %>
+  <% if beach.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(beach.errors.count, "error") %> prohibited this beach from being saved:</h2>
+
+      <ul>
+        <% beach.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tide_dependency %>
+    <%= form.text_field :tide_dependency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :water_quality %>
+    <%= form.text_field :water_quality %>
+  </div>
+
+  <div class="field">
+    <%= form.label :water_quality_date %>
+    <%= form.text_field :water_quality_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :warnings %>
+    <%= form.text_field :warnings %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lat %>
+    <%= form.text_field :lat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :long %>
+    <%= form.text_field :long %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

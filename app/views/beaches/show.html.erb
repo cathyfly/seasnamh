@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @beach.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @beach.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @beach.location %>
+</p>
+
+<p>
+  <strong>Tide dependency:</strong>
+  <%= @beach.tide_dependency %>
+</p>
+
+<p>
+  <strong>Water quality:</strong>
+  <%= @beach.water_quality %>
+</p>
+
+<p>
+  <strong>Water quality date:</strong>
+  <%= @beach.water_quality_date %>
+</p>
+
+<p>
+  <strong>Warnings:</strong>
+  <%= @beach.warnings %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @beach.rating %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @beach.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @beach.long %>
+</p>
+
+<div class="row">
+  <div class="small-2 large-2 columns">
+    <%= imdb_style_rating_for @beach, current_user%>
+  </div>
+  <br>
+  <div class="small-2 large-4 columns">
+    <% if current_user %>
+      Jellyfish rating(0= very few Jellyfish, 5= Many Jellyfish: <%= rating_for @beach, "rating" %>
+      <br>
+    <% end %>
+  </div>
+</div>
+<%= link_to 'Edit', edit_beach_path(@beach) %> |
+<%= link_to 'Back', beaches_path %>

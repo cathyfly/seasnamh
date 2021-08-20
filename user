@@ -1,0 +1,19 @@
+      create  app/assets/javascripts/jquery.raty.js
+      create  app/assets/images/star-on.png
+      create  app/assets/images/star-off.png
+      create  app/assets/images/star-half.png
+      create  app/assets/images/mid-star.png
+      create  app/assets/images/big-star.png
+      create  app/assets/images/cancel-on.png
+      create  app/assets/images/cancel-off.png
+      create  app/assets/javascripts/ratyrate.js.erb
+      create  app/controllers/rater_controller.rb
+      create  app/models/rate.rb
+      create  app/models/rating_cache.rb
+      create  app/models/average_cache.rb
+      create  app/models/overall_average.rb
+       route  post '/rate' => 'rater#create', :as => 'rate'
+      create  db/migrate/20210819231955_create_rating_caches.rb
+      create  db/migrate/20210819231956_create_rates.rb
+      create  db/migrate/20210819231957_create_average_caches.rb
+      create  db/migrate/20210819231958_create_overall_averages.rb
