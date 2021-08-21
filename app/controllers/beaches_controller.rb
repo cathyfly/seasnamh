@@ -2,7 +2,7 @@ class BeachesController < ApplicationController
   before_action :set_beach, only: %i[ show edit update destroy ]
 
   #before_action :authenticate_user!
-  before_action :ensure_admin,only:[:destroy,:create]
+  #before_action :ensure_admin,only:[:destroy,:create]
 
   # GET /beaches or /beaches.json
   def index

@@ -1,50 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Beaches</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Tide dependency</th>
-      <th>Water quality</th>
-      <th>Water quality date</th>
-      <th>Warnings</th>
-      <th>Rating</th>
-      <th>Lat</th>
-      <th>Long</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="text-center">
+<h1>Welcome to SeaSnamh</h1>
+<p> Find a place to swim!</p>
+</div>
+</div>
 
 
-  <tbody>
-    <% @beaches.each do |beach| %>
-      <tr>
-        <td><%= beach.title %></td>
-        <td><%= beach.description %></td>
-        <td><%= beach.location %></td>
-        <td><%= beach.tide_dependency %></td>
-        <td><%= beach.water_quality %></td>
-        <td><%= beach.water_quality_date %></td>
-        <td><%= beach.warnings %></td>
-        <td><%= beach.rating %></td>
-        <td><%= beach.lat %></td>
-        <td><%= beach.long %></td>
-        <td><%= link_to 'Show', beach %></td>
+<% @beaches.each do |beach| %>
+    <div class="container">
+      <!---<div class="row">--->
+        <div class="col-3-sm">
+          <div class="text-center">
+          <div class="card">
+
+            <h2> <%=  beach.title %></br> </h2>
+            <p> <%= beach.description %> </br> </p>
+            <p></p><%=  link_to 'Click to view on map',"#{beach.location}", target: :_blank  %> </br></p>
+            <strong> Best Time To Swim</strong>
+            <p><%= beach.tide_dependency %></br></p>
+            <strong> Latest Water Quality Test</strong>
+       <p> <%= beach.water_quality %>
+         <em><%= beach.water_quality_date %></br></em></p>
+            <strong> Latest Warnings</strong>
+           <p> <%= beach.warnings %> </br> </p>
+            <%= beach.lat %>
+        <%= beach.long %>
+        <%= link_to 'Show', beach %>
 
         <% if current_user.try(:admin?) %>
-          <td><%= link_to 'Edit', edit_beach_path(beach) %></td>
-          <td><%= link_to 'Destroy', beach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to 'Edit', edit_beach_path(beach) %> </br>
+          <%= link_to 'Destroy', beach, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      </tr>
+
+          </div>
+
+         <!-- </div>-->
+      </div>
+    </div>
+    </div>
+
 
 
     <% end %>
-  </tbody>
-</table>
+
 <p class="card-text">weather:</br>
 
  <%#= @output['properties']['timeseries'][0]['data']['instant']['details']['air_temperature']%>

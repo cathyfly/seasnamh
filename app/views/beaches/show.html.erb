@@ -59,7 +59,7 @@
     <%= review.details %>
   </p>
 <% end %>
-
+<%= link_to 'Back', beaches_path %>
 <% if user_signed_in? %>
   <%= link_to 'New review', new_beach_review_path(@beach) %>
 <% end %>
@@ -70,5 +70,5 @@
 
 <% if current_user.try(:admin?) %>
 <%= link_to 'Edit', edit_beach_path(@beach) %>
-<%= link_to 'Back', beaches_path %>
+
 <% end %>
