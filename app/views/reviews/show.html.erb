@@ -1,0 +1,8 @@
+<h1>Review in <%= @beach.title %></h1>
+<p>
+  <b>Review details:</b>
+  <%= @review.details %>
+</p>
+<%= link_to 'Add A New Review', reviews_new_path(@beach) %>
+<%= link_to 'Back', beach_reviews_path(@beach) %>
+

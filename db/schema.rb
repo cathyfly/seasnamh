@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_131918) do
+ActiveRecord::Schema.define(version: 2021_08_21_173557) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2021_08_20_131918) do
     t.decimal "long"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.text "comment_text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "overall_averages", force: :cascade do |t|
@@ -68,6 +76,16 @@ ActiveRecord::Schema.define(version: 2021_08_20_131918) do
     t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "details"
+    t.integer "user_id"
+    t.integer "beach_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beach_id"], name: "index_reviews_on_beach_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -81,4 +99,5 @@ ActiveRecord::Schema.define(version: 2021_08_20_131918) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "users"
 end

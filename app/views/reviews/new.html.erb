@@ -1,0 +1,12 @@
+<h1>New review</h1>
+<%= render 'form' %>
+
+<% if user_signed_in? %>
+  <%= link_to 'New review', new_beach_review_path(@beach) %>
+<% end %>
+
+</table>
+<br />
+
+<%= link_to 'Back to Beach', @beach %>
+<

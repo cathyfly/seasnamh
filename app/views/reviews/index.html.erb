@@ -1,0 +1,22 @@
+<h1>Reviews in <%= @beach.title %></h1>
+<table>
+  <tr>
+    <th>Review details</th>
+  </tr>
+  <% for review in @reviews %>
+    <tr>
+      <td><%= review.details %></td>
+      <td><%= link_to 'Show', beach_review_path(@beach, review)
+      %></td>
+      <% if user_signed_in? %>
+      <td><%= link_to 'Destroy', beach_review_path(@beach, review),
+                      :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+
+    <%= link_to 'New review', new_beach_review_path(@beach) %>
+        <% end %>
+  <% end %>
+</table>
+<br />
+
+<%= link_to 'Back to Beach', @beach %>
