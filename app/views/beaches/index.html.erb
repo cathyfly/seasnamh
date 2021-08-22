@@ -25,8 +25,12 @@
           <div class="card">
 
             <h2> <%=  beach.title %></br> </h2>
+            <h1> <%= @weather['properties']['timeseries'][0]['data']['instant']['details']['air_temperature']%> </h1>
+             <p> <%= @weather['properties']['timeseries'][0]['data']['next_1_hours']['summary']['symbol_code']%></p>
             <p> <%= beach.description %> </br> </p>
             <p></p><%=  link_to 'Click to view on map',"#{beach.location}", target: :_blank  %> </br></p>
+            <strong> next tide</strong> </br> <%= @output_tides['extremes'][0]['state'] %> at
+            <%= Time.parse(@output_tides['extremes'][0]['datetime']).getlocal %></br>
             <strong> Best Time To Swim</strong>
             <p><%= beach.tide_dependency %></br></p>
             <strong> Latest Water Quality Test</strong>
@@ -56,10 +60,10 @@
 
 <p class="card-text">weather:</br>
 
- <%#= @output['properties']['timeseries'][0]['data']['instant']['details']['air_temperature']%>
-  <%#= @output['properties']['timeseries'][0]['data']['next_1_hours']['summary']['symbol_code']%>
+ <%= @weather['properties']['timeseries'][0]['data']['instant']['details']['air_temperature']%>
+  <%= @weather['properties']['timeseries'][0]['data']['next_1_hours']['summary']['symbol_code']%>
   </br>
-<p> next tide <%#= @output_tides['extremes'][0]['state'] %> at
+<p> next tide</p> </br> <%#= @output_tides['extremes'][0]['state'] %> at
   <%#= Time.parse(@output_tides['extremes'][0]['datetime']).getlocal %></br>
 
 </p>

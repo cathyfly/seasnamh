@@ -6,12 +6,14 @@ class BeachesController < ApplicationController
 
   # GET /beaches or /beaches.json
   def index
-    @beaches = Beach.all
+
 
     require 'net/http'
     require 'json'
     require 'uri'
     require 'openssl'
+    require 'bigdecimal'
+    require 'bigdecimal/util'
 
     # @url= 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=53.2895&lon=-6.1137'
     #@uri= URI(@url)
@@ -39,7 +41,50 @@ class BeachesController < ApplicationController
     #@output_tides = JSON.parse(@response_tides)
 
 
+
+
+    @beaches = Beach.all
+
+
+    @lat_beach=@beaches[8].to_f
+    @long_beach=params[:long].to_f
+
+
+
+    @url= "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=#{@lat_beach}&lon=#{@long_beach}"
+    @uri=URI(@url)
+    @response = Net::HTTP.get((@uri),{'User-Agent' => 'https://github.com/cathyfly/sea'})
+    @weather=JSON.parse(@response)
+
+    if@weather.empty?
+      @final_weather="Error"
+    else
+      @final_weather=@weather
+    end
+
+
+    @url_tides = "https://tides.p.rapidapi.com/tides?latitude=#{@lat_beach}&longitude=-#{@long_beach}&duration=1440&interval=60"
+    @uri_tides= URI(@url_tides)
+    http = Net::HTTP.new(@uri_tides.host, @uri_tides.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(@uri_tides)
+    @response_tides = Net::HTTP.get((URI.parse(@url_tides)),{'x-rapidapi-key' => 'b9b9f82b5bmshea905148572a99ap1c64c2jsn4c6d561ef553','x-rapidapi-host'=>'tides.p.rapidapi.com'})
+
+    request["x-rapidapi-key"] = 'b9b9f82b5bmshea905148572a99ap1c64c2jsn4c6d561ef553'
+    request["x-rapidapi-host"] = 'tides.p.rapidapi.com'
+
+    response = http.request(request)
+    puts response.read_body
+
+    @output_tides = JSON.parse(@response_tides)
   end
+
+
+
+
+
 
   # GET /beaches/1 or /beaches/1.json
   def show
