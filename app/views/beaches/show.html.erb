@@ -1,19 +1,20 @@
+<div class="container">
+  <div class="text-center">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
+
   <%= @beach.title %>
-</p>
+</h1>
 
 <p>
   <strong>Description:</strong>
   <%= @beach.description %>
 </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @beach.location %>
-</p>
+
+    <p></p><%=  link_to 'Click to view on map',"#{@beach.location}", target: :_blank  %> </br></p>
 
 <p>
   <strong>Tide dependency:</strong>
@@ -25,30 +26,16 @@
   <%= @beach.water_quality %>
 </p>
 
-<p>
-  <strong>Water quality date:</strong>
+
+  <em>last tested:
   <%= @beach.water_quality_date %>
-</p>
+</em>
 
 <p>
   <strong>Warnings:</strong>
   <%= @beach.warnings %>
 </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @beach.rating %>
-</p>
-
-<p>
-  <strong>Lat:</strong>
-  <%= @beach.lat %>
-</p>
-
-<p>
-  <strong>Long:</strong>
-  <%= @beach.long %>
-</p>
 
 
 <!-- Display the reviews of a beach -->
@@ -72,3 +59,6 @@
 <%= link_to 'Edit', edit_beach_path(@beach) %>
 
 <% end %>
+
+  </div>
+</div>

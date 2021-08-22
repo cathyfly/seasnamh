@@ -93,6 +93,7 @@ class BeachesController < ApplicationController
     @output_tides = tide_results
   end
 
+  #Weathertext is a custom gem I made to tranpose the json data from the weather api to a more readable summary
   def getWeatherText(weathercode)
     return Weathertext.weathertext(weathercode)
   end

@@ -16,10 +16,22 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
-#example-search-input{
-  max-width: 40%;
+body{
+  background-color: powderblue;
 }
 
+.home_search{
+  width: 40%;
+  text-align: center;
+}
+
+#input-group-btn{
+  background-color: cadetblue;
+}
+h1{
+  font-family: Monaco;
+  font-weight: bolder;
+}
 .card{
-  border: solid blue 9px;
+  background-color: darkseagreen;
 }

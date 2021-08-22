@@ -1,3 +1,5 @@
+
+
 <%= form_with(model: beach) do |form| %>
   <% if beach.errors.any? %>
     <div id="error_explanation">
@@ -12,52 +14,52 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title %> </br>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :description %> </br>
     <%= form.text_area :description %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
+    <%= form.label :location %></br>
     <%= form.text_field :location %>
   </div>
 
   <div class="field">
-    <%= form.label :tide_dependency %>
+    <%= form.label :tide_dependency %></br>
     <%= form.text_field :tide_dependency %>
   </div>
 
   <div class="field">
-    <%= form.label :water_quality %>
+    <%= form.label :water_quality %></br>
     <%= form.text_field :water_quality %>
   </div>
 
   <div class="field">
-    <%= form.label :water_quality_date %>
+    <%= form.label :water_quality_date %></br>
     <%= form.text_field :water_quality_date %>
   </div>
 
   <div class="field">
-    <%= form.label :warnings %>
+    <%= form.label :warnings %></br>
     <%= form.text_field :warnings %>
   </div>
 
   <div class="field">
-    <%= form.label :rating %>
+    <%= form.label :rating %></br>
     <%= form.number_field :rating %>
   </div>
 
   <div class="field">
-    <%= form.label :lat %>
+    <%= form.label :lat %></br>
     <%= form.text_field :lat %>
   </div>
 
   <div class="field">
-    <%= form.label :long %>
+    <%= form.label :long %></br>
     <%= form.text_field :long %>
   </div>
 
@@ -65,3 +67,6 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+
+
