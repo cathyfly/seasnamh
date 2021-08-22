@@ -23,6 +23,7 @@ gem 'json', '~> 2.5', '>= 2.5.1'
 gem 'openssl', '~> 2.2'
 gem 'devise'
 gem 'ratyrate', '~> 1.2.2.alpha'
+gem 'weathertext', '0.2.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

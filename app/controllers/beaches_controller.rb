@@ -14,6 +14,7 @@ class BeachesController < ApplicationController
     require 'openssl'
     require 'bigdecimal'
     require 'bigdecimal/util'
+    require 'weathertext'
 
     # @url= 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=53.2895&lon=-6.1137'
     #@uri= URI(@url)
@@ -48,6 +49,7 @@ class BeachesController < ApplicationController
     weather_results = Array.new
     tide_results = Array.new
 
+    Weathertext.weathertext("lightsnowshowers")
      @beaches.each do |beach|
 
 
@@ -71,7 +73,6 @@ class BeachesController < ApplicationController
 
 
       @url_tides = "https://tides.p.rapidapi.com/tides?latitude=#{@lat_beach}&longitude=#{@long_beach}&duration=1440&interval=60"
-      puts @url_tides
       @uri_tides= URI(@url_tides)
       http = Net::HTTP.new(@uri_tides.host, @uri_tides.port)
       http.use_ssl = true
@@ -84,14 +85,19 @@ class BeachesController < ApplicationController
       request["x-rapidapi-host"] = 'tides.p.rapidapi.com'
 
       response = http.request(request)
-      puts response.read_body
+
 
       tide_results.push(JSON.parse(@response_tides))
      end
     @final_weather = weather_results
     @output_tides = tide_results
-    puts tide_results
-    end
+  end
+
+  def getWeatherText(weathercode)
+    return Weathertext.weathertext(weathercode)
+  end
+
+  helper_method :getWeatherText
 
 
 

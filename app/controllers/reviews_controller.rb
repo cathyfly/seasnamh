@@ -1,4 +1,4 @@
-require "myLogger"
+#require "myLogger"
 class ReviewsController < ApplicationController
   # GET /beaches/1/reviews
   def index
@@ -40,8 +40,9 @@ class ReviewsController < ApplicationController
       render :action => "new"
     end
 
-    logger = MyLogger.instance
-    logger.logInformation("A new review has been added  " + @beach.title)
+    #DESIGN PATTERN - OBSERVER - LOG TO A .TXT FILE WHEN A NEW REVIEW IS ADDED
+    #logger = MyLogger.instance
+    #logger.logInformation("A new review has been added  " + @beach.title)
   end
 
   # DELETE /beaches/1/reviews/2

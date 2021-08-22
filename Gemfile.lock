@@ -203,6 +203,7 @@ GEM
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
+    weathertext (0.2.0)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -248,6 +249,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
+  weathertext (= 0.2.0)
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
