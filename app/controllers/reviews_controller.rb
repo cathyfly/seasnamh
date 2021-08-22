@@ -1,3 +1,4 @@
+require "myLogger"
 class ReviewsController < ApplicationController
   # GET /beaches/1/reviews
   def index
@@ -38,6 +39,9 @@ class ReviewsController < ApplicationController
     else
       render :action => "new"
     end
+
+    logger = MyLogger.instance
+    logger.logInformation("A new review has been added  " + @beach.title)
   end
 
   # DELETE /beaches/1/reviews/2
