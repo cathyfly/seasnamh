@@ -1,0 +1,6 @@
+<h2> Here are the beaches we found</h2>
+
+
+<% @matchBeaches.each do |beach| %>
+  <%= link_to beach.title, beach_path(beach.id) %>
+<% end %>

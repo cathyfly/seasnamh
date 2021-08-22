@@ -15,3 +15,11 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+#example-search-input{
+  max-width: 40%;
+}
+
+.card{
+  border: solid blue 9px;
+}

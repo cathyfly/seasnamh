@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/search', to: "beaches#search"
   get 'reviews/index'
   get 'reviews/show'
   get 'reviews/new'

@@ -91,6 +91,16 @@ class BeachesController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to beaches_path and return
+    else
+      @parameter = params[:search].downcase
+      @matchBeaches = Beach.all.where("lower(description) LIKE :search", search: "%#{@parameter}%")
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_beach
@@ -101,4 +111,6 @@ class BeachesController < ApplicationController
     def beach_params
       params.require(:beach).permit(:title, :description, :location, :tide_dependency, :water_quality, :water_quality_date, :warnings, :rating, :lat, :long)
     end
+
+
 end
